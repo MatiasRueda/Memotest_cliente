@@ -1,0 +1,224 @@
+.pagina-juego {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagina-juego h1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego {
+    min-height: 80%;
+    width: 100%;
+    display: flex;
+    background-color: skyblue;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego .tablero {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 40%;
+    border: 0.2rem solid black;
+    background-color: rgb(164, 164, 253);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego .tablero button {
+    margin: 0.2rem;
+    border: 0.1rem solid black;
+}
+
+.juego .info {
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego .info-puntaje {
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.juego .info-puntaje h2 {
+    width: 50%;
+    text-align: center;
+}
+
+.juego .cont-tiempo {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego .cont-tiempo button {
+    height: 3rem;
+    width: 6rem;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+}
+
+.juego .cont-tiempo button:hover {
+    color: white;
+    background-color: rgb(117, 117, 223);
+}
+
+.post-juego {
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-juego h2 {
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
+}
+
+.post-juego h3 {
+    width: 100%;
+    text-align: center;
+}
+
+
+.post-juego .cont-opciones {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.post-juego .cont-opciones button {
+    height: 4rem;
+    width: 10rem;
+    cursor: pointer;
+    border: 0.3rem solid white;
+    color: white;
+    background-color: black;
+}
+
+.post-juego .cont-opciones button:hover {
+    color: black;
+    background-color: white;
+}
+
+@media (max-width: 1280px) and (min-width: 415px) {
+    .juego .tablero {
+        width: 79%;
+        margin-bottom: 3rem;
+    }
+
+    .juego .info , .juego .info-puntaje{
+        width: 100%;
+    }
+
+    .juego .tablero button {
+        height: 4.2rem !important;
+        width: 4.2rem !important;
+    }
+}
+
+
+@media (max-width: 410px) and (min-width: 301px) {
+    .juego .tablero {
+        width: 98%;
+    }
+
+    .juego .info {
+        width: 100%;
+    }
+
+    .juego .info-puntaje{
+        width: 100%; 
+    }
+
+    .juego .info-puntaje h2{
+        width: 100%; 
+    }
+
+    .juego .tablero button {
+        height: 3.2rem !important;
+        width: 3.2rem !important;
+    }
+}
+
+@media (width: 1024px) {
+    .juego .tablero {
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media (max-width: 415px) and (min-width: 411px) {
+    .juego .tablero {
+        width: 98%;
+    }
+
+    .juego .info {
+        width: 100%;
+    }
+
+    .juego .info-puntaje{
+        width: 100%; 
+    }
+
+    .juego .info-puntaje h2{
+        width: 100%; 
+    }
+
+    .juego .tablero button {
+        height: 3.5rem !important;
+        width: 3.5rem !important;
+    }
+}
+
+@media (max-width: 300px){
+    .juego .tablero {
+        width: 97.4%;
+    }
+
+    .juego .info {
+        margin: 0 auto;
+        height: 100%;
+        width: 100%;
+    }
+    .juego .info-puntaje{
+        width: 100%; 
+    }
+
+    .juego .info-puntaje h2{
+        width: 100%; 
+    }
+
+    .juego .tablero button {
+        height: 2.3rem !important;
+        width: 2.3rem !important;
+    }
+}
