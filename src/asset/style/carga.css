@@ -63,7 +63,12 @@
     }
 
     .mensaje .cont-botones  {
-        width: 50%;
+        width: 100%;
+    }
+
+    .mensaje button {
+        height: 4.5rem;
+        width: 8rem;
     }
 
 }
