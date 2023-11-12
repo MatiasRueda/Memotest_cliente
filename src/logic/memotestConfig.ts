@@ -1,8 +1,8 @@
 const config = {
-    nivelInicial: 1,
+    nivelInicial: 16,
     puntajeNivel: 0,
     puntajeTotal: 0,
-    masRecursosCadaXNivel: 4, //Valor de cada cuantos niveles se aumentan los tiempos
+    masRecursosCadaXNivel: 3, //Valor de cada cuantos niveles se aumentan los tiempos
     segPorNivelInicial: 5,
     segParaMemorizarInicial: 5,
     intentosInicial: 3,

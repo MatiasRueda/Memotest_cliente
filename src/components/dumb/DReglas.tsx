@@ -11,9 +11,9 @@ function DReglas(): JSX.Element {
             <p>4- En caso de salir no se guardaran los datos</p>
             <p>5- Cada 3 niveles: </p>
             <ul>
-                <li>Se recuperaran 2 intentos</li>
+                <li>Se recuperaran 1 intento</li>
                 <li>Se aumentaran 2 segundos al tiempo para memorizar</li>
-                <li>Se aumentaran 5 segundos al tiempo para completar el nivel</li>
+                <li>Se aumentaran 3 segundos al tiempo para completar el nivel</li>
             </ul>
         </section>
     )

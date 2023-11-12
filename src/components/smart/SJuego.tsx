@@ -73,7 +73,9 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
                 <APostJuego llave={pantallaJuego}>
                     {pantallaJuego === PANTALLA_JUEGO.JUEGO &&  
                         <Fragment>
-                            <h1>Nivel: {informacion.nivel}</h1>
+                            <h1 className="cont-nivel">
+                                Nivel: {informacion.nivel}
+                            </h1>
                             <DJuego informacion={informacion} 
                                     elegirCuadrado={metodosMemotest.elegirCuadrado}
                                     usuario={usuario!}

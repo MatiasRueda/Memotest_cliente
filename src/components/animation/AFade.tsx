@@ -12,14 +12,14 @@ function AFade(props: { llave: Key , children: ReactNode }): JSX.Element {
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div
+            <motion.section
                 key={props.llave}
                 style={estilo}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}>
                     {props.children}
-            </motion.div>
+            </motion.section>
         </AnimatePresence>
     )
 }

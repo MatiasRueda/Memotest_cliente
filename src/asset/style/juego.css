@@ -8,15 +8,12 @@
     justify-content: center;
 }
 
-.pagina-juego h1 {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.pagina-juego .cont-nivel {
+    font-size: 3rem;
 }
 
 .juego {
-    min-height: 80%;
+    min-height: 60%;
     width: 100%;
     display: flex;
     background-color: skyblue;
@@ -28,10 +25,10 @@
 .juego .tablero {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     width: 40%;
-    border: 0.2rem solid black;
+    border: 0.15rem solid black;
     background-color: rgb(164, 164, 253);
     display: flex;
     flex-wrap: wrap;
@@ -74,6 +71,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.juego .cont-cronometro {
+    font-size: 1.5rem;
 }
 
 .juego .cont-tiempo button {
@@ -145,30 +146,6 @@
     }
 }
 
-
-@media (max-width: 410px) and (min-width: 301px) {
-    .juego .tablero {
-        width: 98%;
-    }
-
-    .juego .info {
-        width: 100%;
-    }
-
-    .juego .info-puntaje{
-        width: 100%; 
-    }
-
-    .juego .info-puntaje h2{
-        width: 100%; 
-    }
-
-    .juego .tablero button {
-        height: 3.2rem !important;
-        width: 3.2rem !important;
-    }
-}
-
 @media (width: 1024px) {
     .juego .tablero {
         margin-bottom: 1rem;
@@ -196,6 +173,29 @@
     .juego .tablero button {
         height: 3.5rem !important;
         width: 3.5rem !important;
+    }
+}
+
+@media (max-width: 410px) and (min-width: 301px) {
+    .juego .tablero {
+        width: 98%;
+    }
+
+    .juego .info {
+        width: 100%;
+    }
+
+    .juego .info-puntaje{
+        width: 100%; 
+    }
+
+    .juego .info-puntaje h2{
+        width: 100%; 
+    }
+
+    .juego .tablero button {
+        height: 3.2rem !important;
+        width: 3.2rem !important;
     }
 }
 
