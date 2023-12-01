@@ -5,8 +5,8 @@
 Proyecto personal para aplicar mis conocimientos en Typescript React ,  patrón en componentes ( Smart y Dumb components ) y Jest.  Además de utilizar nuevas dependencias ( framer-motion, entre otras... ).
 La pagina ofrece un juego completo de memotest y también incluye competencias entre otros jugadores.
 
-## Personas Contribuyentes
-Proyecto realizado únicamente por mi.
+## Tipo de proyecto
+Proyecto individual
 
 ## Tecnologías utilizadas
   - React
