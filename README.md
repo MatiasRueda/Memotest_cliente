@@ -6,7 +6,7 @@ Proyecto personal para aplicar mis conocimientos en Typescript React ,  patrón 
 La pagina ofrece un juego completo de memotest y también incluye competencias entre otros jugadores.
 
 ## Tipo de proyecto
-Proyecto individual
+Proyecto individual.
 
 ## Tecnologías utilizadas
   - React
