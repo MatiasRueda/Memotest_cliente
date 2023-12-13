@@ -10,6 +10,7 @@ Proyecto individual.
 
 ## Tecnologías utilizadas
   - React
+  - CSS
   - Typescript
   - Jest
 
