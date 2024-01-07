@@ -14,6 +14,11 @@ Proyecto individual.
   - Typescript
   - Jest
 
+## Capturas de pantalla 
+<img src="https://i.postimg.cc/Qd2dxFWb/Memotest1.png"/>
+<img src="https://i.postimg.cc/4NvDhnMP/Memotest2.png"/>
+
+
 ## Estructura 
 
 ```
@@ -140,6 +145,8 @@ Para poder correr los test escriba el siguiente comando:
 npm run test
 ```
 En caso de saltarse los paso de instalación y querer probar el proyecto en linea visitar el siguiente link: https://gleaming-pudding-4d279d.netlify.app
+
+</br>
 
 > [!NOTE]
 > Tanto el server como la base de datos pueden ser lentas. Porfavor tenga paciencia.
