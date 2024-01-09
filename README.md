@@ -1,23 +1,34 @@
-# Memotest cliente
+# Memotest
 ![Static Badge](https://img.shields.io/badge/Estado%20-%20Terminado%20-%20green)
 
 ## Introducción
-Proyecto personal para aplicar mis conocimientos en Typescript React ,  patrón en componentes ( Smart y Dumb components ) y Jest.  Además de utilizar nuevas dependencias ( framer-motion, entre otras... ).
+Proyecto personal para aplicar mis conocimientos en Typescript React. </br>
 La pagina ofrece un juego completo de memotest y también incluye competencias entre otros jugadores.
 
 ## Tipo de proyecto
 Proyecto individual.
+
+## Capturas de pantalla 
+<img src="https://i.postimg.cc/Qd2dxFWb/Memotest1.png"/>
+<img src="https://i.postimg.cc/4NvDhnMP/Memotest2.png"/>
+
+## Estrategias
+### Smart y Dumb Component
+Se separaron los componentes que se utilizan en el proyecto en smart  y dumb component según la responsabilidad que tengan. Esto lo hice con el objetivo de obtener un código mas conciso y una mejor legibilidad </br> 
+Smart:  Tendrán la lógica del componente, operaciones complejas , gestionan eventos y acciones del usuario.</br>
+Dumb: No manejan la lógica, se encargan únicamente de la presentación.
+
+### Carpeta Auxiliar
+En esta carpeta guardo distintos types o variables constantes que usare a lo largo de todo el proyecto, de esta forma evito repetir código y con las variable contantes definidas evito tener cadenas mágicas 
+
+### Test
+Realizo varios test automaticos sobre distintos componentes. Estos test los hice con el fin de poder realizar cambios sobre estos componentes (refactorizarlos) y luego asegurarme que todos los componentes funcionen de la misma forma.
 
 ## Tecnologías utilizadas
   - React
   - CSS
   - Typescript
   - Jest
-
-## Capturas de pantalla 
-<img src="https://i.postimg.cc/Qd2dxFWb/Memotest1.png"/>
-<img src="https://i.postimg.cc/4NvDhnMP/Memotest2.png"/>
-
 
 ## Estructura 
 
@@ -126,8 +137,8 @@ Memotest_cliente
 
 ```
 ## Instalación 
-Antes de descargar o clonar el repositorio es necesario que usted instale Node (https://nodejs.org/en).
-Una vez descargado o clanado el repositorio, abra la terminal en la ruta donde se encuentra el proyecto y escriba el siguiente comando.
+Antes de descargar o clonar el repositorio es necesario que usted instale Node (https://nodejs.org/en). </br>
+Una vez descargado o clonado el repositorio, abra la terminal en la ruta donde se encuentra el proyecto y escriba el siguiente comando.
 ```
 npm i
 ```
