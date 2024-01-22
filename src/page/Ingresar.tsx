@@ -3,9 +3,9 @@ import SIngresar from "../components/smart/SIngresar";
 
 function Ingresar(): JSX.Element {
     return (
-        <main className="pagina-ingresar">
+        <section className="pagina-ingresar">
             <SIngresar/>
-        </main>
+        </section>
     )
 }
 

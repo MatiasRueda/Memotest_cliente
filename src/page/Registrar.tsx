@@ -3,9 +3,9 @@ import SRegistrar from "../components/smart/SRegistrar";
 
 function Registrar(): JSX.Element {
     return (
-        <main className="pagina-registrarse">
+        <section className="pagina-registrarse">
             <SRegistrar/>
-        </main>
+        </section>
     )
 }
 

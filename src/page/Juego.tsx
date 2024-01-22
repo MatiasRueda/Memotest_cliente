@@ -4,9 +4,9 @@ import Memotest from "../logic/memotest";
 
 function Juego(props: {memotest: Memotest}): JSX.Element {
     return (
-        <main className="pagina-juego">
+        <section className="pagina-juego">
             <SJuego memotest={props.memotest}/>
-        </main>
+        </section>
     )
 }
 

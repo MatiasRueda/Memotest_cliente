@@ -14,7 +14,7 @@ function SManejoPantallas(): JSX.Element {
     const { pagina } = useInformacionContext();
     return (
         <AnimatePresence mode="wait">
-            <motion.section 
+            <motion.main 
                 key={pagina}
                 className="fade"
                 {...Fade}>
@@ -32,7 +32,7 @@ function SManejoPantallas(): JSX.Element {
                         <Juego memotest={new Memotest()} />}
                     {pagina === PAGINA.TABLA && 
                         <Tabla/>}
-            </motion.section>
+            </motion.main>
         </AnimatePresence>
     )
 }

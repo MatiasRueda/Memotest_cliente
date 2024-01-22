@@ -3,10 +3,10 @@ import SConfiguracion from "../components/smart/SConfiguracion";
 
 function Configuracion(): JSX.Element {
     return (
-        <main className="pagina-configuracion">
+        <section className="pagina-configuracion">
             <h2>Configuracion</h2>
             <SConfiguracion/>
-        </main>
+        </section>
     )
 }
 

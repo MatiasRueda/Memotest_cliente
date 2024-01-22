@@ -4,8 +4,6 @@ import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
 import { Fragment, useEffect } from "react";
 import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import { useInformacionContext } from "./SInformacion";
-import { CambiarPantalla } from "../../auxiliar/animacion";
-import { motion } from "framer-motion";
 
 function SMenu(): JSX.Element {
     const { pantalla , cambiarPantalla , mantenerPantalla } = usePantallaCarga();
@@ -27,10 +25,7 @@ function SMenu(): JSX.Element {
 
 
     return (
-        <motion.section 
-            key={pantalla}
-            className="cargando"
-            {...CambiarPantalla}>
+        <Fragment >
             {pantalla === PANTALLA_CARGA.ACTUAL &&  
                 <Fragment>
                     <h1>Memotest</h1>
@@ -39,7 +34,7 @@ function SMenu(): JSX.Element {
                 </Fragment>}
             {pantalla === PANTALLA_CARGA.MENSAJE && 
                 <DMensajeTemporal mensaje="Saliendo..."/>}
-        </motion.section>
+        </Fragment>
     )
 }
 
