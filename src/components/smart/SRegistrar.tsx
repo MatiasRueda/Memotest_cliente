@@ -4,10 +4,11 @@ import SFormularioRegister from "./SFormularioRegistrar";
 import { PAGINA, useInformacionContext } from "./SInformacion";
 import { Fragment } from "react";
 import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
-import ACargando from "../animation/ACargando";
 import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import DMensaje from "../dumb/DMensaje";
 import { RespuestaServer } from "../../auxiliar/type";
+import { motion } from "framer-motion";
+import { CambiarPantalla } from "../../auxiliar/animacion";
 
 type Usuario = {
     nombre: string;
@@ -32,7 +33,10 @@ function SRegistrar(): JSX.Element {
     }
 
     return (
-        <ACargando llave={pantalla}>
+        <motion.section
+            key={pantalla}
+            className="cargando"
+            {...CambiarPantalla}>
             {pantalla === PANTALLA_CARGA.CARGANDO && 
                 <DMensajeTemporal mensaje="Cargando..."/>}
             {pantalla === PANTALLA_CARGA.MENSAJE && 
@@ -55,7 +59,7 @@ function SRegistrar(): JSX.Element {
                           btnVolver={<button onClick={() => { cambiarPantalla(PANTALLA_CARGA.ACTUAL) }}>
                                         Volver a registrar
                                      </button>}/>}
-        </ACargando>
+        </motion.section>
     )
 }
 

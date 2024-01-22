@@ -7,16 +7,16 @@ import STiempo from "./STiempo";
 import DVictoria from "../dumb/DVictoria";
 import DDerrota from "../dumb/DDerrota";
 import DFinal from "../dumb/DFinal";
-import APostJuego from "../animation/APostJuego";
 import useEnviarSolicitud, { METODO } from "../../hook/useEnviarSolicitud";
 import { SERVER_PATH_ACTUALIZAR } from "../../auxiliar/path";
 import usePantallaJuego, { PANTALLA_JUEGO } from "../../hook/usePantallaJuego";
 import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
-import ACargando from "../animation/ACargando";
 import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import DMensaje from "../dumb/DMensaje";
 import { Fragment } from "react";
 import { RespuestaServer, Usuario } from "../../auxiliar/type";
+import { motion } from "framer-motion";
+import { CambiarPantalla, Fade } from "../../auxiliar/animacion";
 
 function SJuego(props: { memotest: Memotest }): JSX.Element {
     const { usuario , cambiarPagina , actualizarUsuario } = useInformacionContext();
@@ -61,7 +61,10 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
     }
 
     return (
-        <ACargando llave={pantalla}>
+        <motion.section 
+            key={pantalla}
+            className="cargando"
+            {...CambiarPantalla}>
             {pantalla === PANTALLA_CARGA.MENSAJE && 
                 <DMensajeTemporal mensaje="Actualizando datos..."/>}
             {pantalla === PANTALLA_CARGA.ERROR && 
@@ -70,7 +73,10 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
                                             Volver al menu
                                         </button>}/>}
             {pantalla === PANTALLA_CARGA.ACTUAL && 
-                <APostJuego llave={pantallaJuego}>
+                <motion.section
+                    key={pantallaJuego}
+                    className="fade"
+                    {...Fade}>
                     {pantallaJuego === PANTALLA_JUEGO.JUEGO &&  
                         <Fragment>
                             <h1 className="cont-nivel">
@@ -107,8 +113,8 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
                                                     {nombre: "Volver a jugar" , 
                                                     activadorOpcion: volverAJugar }]}/>}/>}
                         
-                </APostJuego>}
-        </ACargando>
+                </motion.section>}
+        </motion.section>
     )
 }
 

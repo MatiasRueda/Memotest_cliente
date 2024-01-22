@@ -13,7 +13,7 @@
 }
 
 .juego {
-    min-height: 60%;
+    height: 90%;
     width: 100%;
     display: flex;
     background-color: skyblue;
@@ -220,5 +220,18 @@
     .juego .tablero button {
         height: 2.3rem !important;
         width: 2.3rem !important;
+    }
+}
+
+
+@media (width: 430px){
+    .juego {
+        height: 110%;    
+    }
+}
+
+@media (width: 540px) {
+    .juego {
+        height: 110%;    
     }
 }

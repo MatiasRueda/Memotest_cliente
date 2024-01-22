@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { SERVER_PATH_USUARIOS } from "../../auxiliar/path";
 import useObtenerInfo from "../../hook/useObtenerInfo";
 import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
-import ACargando from "../animation/ACargando";
 import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import DTabla from "../dumb/DTabla";
 import DUsuarioTabla from "../dumb/DUsuarioTabla";
 import { PAGINA, useInformacionContext } from "./SInformacion";
 import DMensaje from "../dumb/DMensaje";
 import { RespuestaServer } from "../../auxiliar/type";
+import { motion } from "framer-motion";
+import { CambiarPantalla } from "../../auxiliar/animacion";
 
 type UsuarioTabla = {
     nombre: string;
@@ -44,7 +45,10 @@ function STabla(): JSX.Element {
     }, [isLoading || isValidating])
 
     return (
-        <ACargando llave={pantalla}>
+        <motion.section 
+            key={pantalla}
+            className="cargando"
+            {...CambiarPantalla}>
             {pantalla === PANTALLA_CARGA.CARGANDO && 
                 <DMensajeTemporal mensaje="Cargando..."/>}
             {pantalla === PANTALLA_CARGA.ERROR && 
@@ -55,7 +59,7 @@ function STabla(): JSX.Element {
             {pantalla === PANTALLA_CARGA.ACTUAL && 
                     <DTabla usuarios={usuariosTabla(data!.dato!)} 
                             volver={() => { cambiarPagina(PAGINA.MENU) }}/>}
-        </ACargando>
+        </motion.section>
     )
 }
 
