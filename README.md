@@ -15,8 +15,8 @@ Proyecto individual.
 ## Estrategias
 ### Smart y Dumb Component
 Se separaron los componentes que se utilizan en el proyecto en smart  y dumb component según la responsabilidad que tengan. Esto lo hice con el objetivo de obtener un código mas conciso y una mejor legibilidad </br> 
-Smart:  Tendrán la lógica del componente, operaciones complejas , gestionan eventos y acciones del usuario.</br>
-Dumb: No manejan la lógica, se encargan únicamente de la presentación.
+**Smart**:  Tendrán la lógica del componente, operaciones complejas , gestionan eventos y acciones del usuario.</br>
+**Dumb**: No manejan la lógica, se encargan únicamente de la presentación.
 
 ### Carpeta Auxiliar
 En esta carpeta guardo distintos types o variables constantes que usare a lo largo de todo el proyecto, de esta forma evito repetir código y con las variable contantes definidas evito tener cadenas mágicas 
