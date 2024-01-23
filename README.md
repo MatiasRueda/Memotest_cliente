@@ -5,6 +5,18 @@
 Proyecto personal para aplicar mis conocimientos en Typescript React. </br>
 La pagina ofrece un juego completo de memotest y también incluye competencias entre otros jugadores.
 
+## Tabla de contenido
+* [Introducción](#Introducción)
+* [Tabla de contenido](#Tabla-de-contenido)
+* [Tipo de proyecto](#Tipo-de-proyecto)
+* [Capturas de pantalla](#Capturas-de-pantalla)
+* [Estrategias](#Estrategias)
+* [Tecnologías utilizadas](#Tecnologías-utilizadas)
+* [Estructura](#Estructura)
+* [Instalación](#Instalación)
+* [Uso](#Uso)
+
+
 ## Tipo de proyecto
 Proyecto individual.
 
