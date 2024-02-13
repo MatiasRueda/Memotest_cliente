@@ -85,6 +85,7 @@
 
 .juego .cont-cronometro {
   font-size: 1.5em;
+  text-align: center;
 }
 
 .juego .cont-tiempo button {
