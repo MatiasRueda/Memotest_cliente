@@ -167,7 +167,7 @@ Para poder correr los test escriba el siguiente comando:
 ```
 npm run test
 ```
-En caso de saltarse los paso de instalación y querer probar el proyecto en linea visitar el siguiente link: https://gleaming-pudding-4d279d.netlify.app
+En caso de saltarse los paso de instalación y querer probar el proyecto en linea visitar el siguiente link: https://sage-sawine-2aa5d8.netlify.app
 
 </br>
 
