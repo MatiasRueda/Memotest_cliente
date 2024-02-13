@@ -50,6 +50,8 @@ Memotest_cliente
 ├─ index.html
 ├─ package-lock.json
 ├─ package.json
+├─ public
+│  └─ cuadrado.png
 ├─ README.md
 ├─ src
 │  ├─ App.tsx
@@ -74,14 +76,15 @@ Memotest_cliente
 │  │     ├─ reglas.css
 │  │     └─ tabla.css
 │  ├─ auxiliar
+│  │  ├─ animacion.ts
 │  │  ├─ efecto.ts
+│  │  ├─ invitado.ts
 │  │  ├─ path.ts
 │  │  └─ type.ts
 │  ├─ components
 │  │  ├─ animation
-│  │  │  ├─ ACargando.tsx
-│  │  │  ├─ AFade.tsx
-│  │  │  └─ APostJuego.tsx
+│  │  │  ├─ AMensajes.tsx
+│  │  │  └─ ATitulo.tsx
 │  │  ├─ dumb
 │  │  │  ├─ DCronometro.tsx
 │  │  │  ├─ DDerrota.tsx
@@ -97,6 +100,7 @@ Memotest_cliente
 │  │  │  ├─ DUsuarioTabla.tsx
 │  │  │  └─ DVictoria.tsx
 │  │  └─ smart
+│  │     ├─ SBotonMenu.tsx
 │  │     ├─ SConfiguracion.tsx
 │  │     ├─ SCronometro.tsx
 │  │     ├─ SFormulario.tsx
@@ -104,7 +108,6 @@ Memotest_cliente
 │  │     ├─ SFormularioIngresar.tsx
 │  │     ├─ SFormularioRegistrar.tsx
 │  │     ├─ SFormularioReglas.tsx
-│  │     ├─ SInformacion.tsx
 │  │     ├─ SIngresar.tsx
 │  │     ├─ SInput.tsx
 │  │     ├─ SJuego.tsx
@@ -118,6 +121,8 @@ Memotest_cliente
 │  │     ├─ SSaludo.tsx
 │  │     ├─ STabla.tsx
 │  │     └─ STiempo.tsx
+│  ├─ context
+│  │  └─ Informacion.tsx
 │  ├─ hook
 │  │  ├─ useEnviarSolicitud.tsx
 │  │  ├─ useMemotest.tsx
