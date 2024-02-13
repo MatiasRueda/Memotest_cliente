@@ -96,7 +96,7 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
   ];
   return (
     <AnimatePresence>
-      <div key={pantalla} className="cont-juego">
+      <div className="cont-juego">
         <h1 className="cont-nivel">Nivel: {informacion.nivel}</h1>
         <DJuego
           informacion={informacion}

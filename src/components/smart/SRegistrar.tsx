@@ -8,6 +8,7 @@ import DMensaje from "../dumb/DMensaje";
 import { RespuestaServer } from "../../auxiliar/type";
 import { PAGINA, useInformacionContext } from "../../context/Informacion";
 import SBotonMenu from "./SBotonMenu";
+import AMensajes from "../animation/AMensajes";
 
 type Usuario = {
   nombre: string;
@@ -53,7 +54,7 @@ function SRegistrar(): JSX.Element {
         }}
       />
       {pantalla === PANTALLA_CARGA.CARGANDO && (
-        <DMensajeTemporal mensaje="Cargando..." />
+        <DMensajeTemporal mensaje="Cargando..." mensajes={<AMensajes />} />
       )}
       {pantalla === PANTALLA_CARGA.MENSAJE && (
         <DMensaje

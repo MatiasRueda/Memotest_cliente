@@ -24,6 +24,22 @@
   justify-content: space-around;
 }
 
+.mensaje-temporal {
+  display: flex;
+  flex-direction: column;
+}
+
+.mensaje-temporal h1 {
+  margin-bottom: 6rem;
+  font-size: 3em;
+}
+
+.mensaje-temporal span {
+  height: 12rem;
+  width: 100%;
+  text-align: center;
+}
+
 .mensaje button {
   height: 4.5rem;
   width: 10rem;
@@ -60,5 +76,14 @@
   .mensaje button {
     height: 4.5rem;
     width: 8rem;
+  }
+
+  .mensaje-temporal h1 {
+    font-size: 1.5em;
+  }
+
+  .mensaje-temporal span {
+    background-color: red;
+    font-size: 0.8em;
   }
 }

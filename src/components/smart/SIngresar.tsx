@@ -8,6 +8,7 @@ import { RespuestaServer, Usuario } from "../../auxiliar/type";
 import { PAGINA, useInformacionContext } from "../../context/Informacion";
 import { Fragment } from "react";
 import SBotonMenu from "./SBotonMenu";
+import AMensajes from "../animation/AMensajes";
 
 function SIngresar(): JSX.Element {
   const enviador = useEnviarSolicitud<Usuario, RespuestaServer<Usuario>>(
@@ -28,7 +29,6 @@ function SIngresar(): JSX.Element {
 
   const enviarInformacion = async (data: any): Promise<void> => {
     cambiarPantalla(PANTALLA_CARGA.CARGANDO);
-    await new Promise((resolve) => setTimeout(resolve, 30000));
     await enviador.trigger(data);
     await mantenerPantalla();
     if (!enviador.data!.exito) {
@@ -62,7 +62,7 @@ function SIngresar(): JSX.Element {
         />
       )}
       {pantalla === PANTALLA_CARGA.CARGANDO && (
-        <DMensajeTemporal mensaje="Cargando..." />
+        <DMensajeTemporal mensaje="Cargando..." mensajes={<AMensajes />} />
       )}
     </Fragment>
   );
