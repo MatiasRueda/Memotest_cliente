@@ -1,9 +1,12 @@
+import { motion } from "framer-motion";
+import { Fade } from "../../auxiliar/animacion";
+
 function DDerrota(props: { opciones: JSX.Element }): JSX.Element {
   return (
-    <section className="post-juego">
+    <motion.section className="pantalla post-juego" {...Fade}>
       <h2>Perdiste</h2>
       {props.opciones}
-    </section>
+    </motion.section>
   );
 }
 

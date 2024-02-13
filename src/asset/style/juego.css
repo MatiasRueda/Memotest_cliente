@@ -9,12 +9,22 @@
 }
 
 .pagina-juego .cont-nivel {
-  font-size: 3rem;
+  font-size: 3em;
+}
+
+.cont-juego {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cont-nivel {
+  text-align: center;
 }
 
 .juego {
-  height: 90%;
-  width: 100%;
+  flex: 1 1 auto;
   display: flex;
   background-color: skyblue;
   flex-direction: column;
@@ -74,7 +84,7 @@
 }
 
 .juego .cont-cronometro {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .juego .cont-tiempo button {
@@ -91,15 +101,13 @@
 }
 
 .post-juego {
-  height: 50%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .post-juego h2 {
   width: 100%;
+  margin-bottom: 2rem;
   font-size: 4em;
   text-align: center;
 }
@@ -110,7 +118,8 @@
 }
 
 .post-juego .cont-opciones {
-  width: 100%;
+  margin-top: 5rem;
+  width: 35rem;
   display: flex;
   justify-content: space-around;
 }
@@ -149,6 +158,16 @@
 @media (width: 1024px) {
   .juego .tablero {
     margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .post-juego h2 {
+    font-size: 2em;
+  }
+
+  .post-juego .cont-opciones {
+    width: 100%;
   }
 }
 

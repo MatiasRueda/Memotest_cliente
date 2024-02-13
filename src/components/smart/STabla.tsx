@@ -10,6 +10,7 @@ import { RespuestaServer } from "../../auxiliar/type";
 import { motion } from "framer-motion";
 import { CambiarPantalla } from "../../auxiliar/animacion";
 import { PAGINA, useInformacionContext } from "../../context/Informacion";
+import SBotonMenu from "./SBotonMenu";
 
 type UsuarioTabla = {
   nombre: string;
@@ -24,6 +25,7 @@ function STabla(): JSX.Element {
   const { data, isLoading, isValidating } = useObtenerInfo<
     RespuestaServer<UsuarioTabla[]>
   >(SERVER_PATH_USUARIOS, false);
+
   const usuariosTabla = (usuarios: UsuarioTabla[]): JSX.Element[] => {
     return usuarios.map((usuario) => (
       <DUsuarioTabla
@@ -60,18 +62,7 @@ function STabla(): JSX.Element {
         <DMensajeTemporal mensaje="Cargando..." />
       )}
       {pantalla === PANTALLA_CARGA.ERROR && (
-        <DMensaje
-          mensaje={data!.mensaje}
-          btnSiguiente={
-            <button
-              onClick={() => {
-                cambiarPagina(PAGINA.MENU);
-              }}
-            >
-              Volver al menu
-            </button>
-          }
-        />
+        <DMensaje mensaje={data!.mensaje} btnSiguiente={<SBotonMenu />} />
       )}
       {pantalla === PANTALLA_CARGA.ACTUAL && (
         <DTabla

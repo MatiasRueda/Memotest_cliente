@@ -22,7 +22,7 @@
 
 .pantalla {
   position: fixed;
-  background-color: red;
+  background-color: black;
   top: 0;
   right: 0;
   height: 100vh;
@@ -31,18 +31,13 @@
   font-size: 1.9em;
   align-items: center;
   justify-content: center;
-}
-
-.cargando {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  overflow-y: hidden;
 }
 
 main {
   width: 100%;
   flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

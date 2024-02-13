@@ -1,6 +1,5 @@
 import SOpciones from "./SOpciones";
 import Memotest from "../../logic/memotest";
-
 import DJuego from "../dumb/DJuego";
 import useMemotest from "../../hook/useMemotest";
 import STiempo from "./STiempo";
@@ -13,11 +12,10 @@ import usePantallaJuego, { PANTALLA_JUEGO } from "../../hook/usePantallaJuego";
 import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
 import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import DMensaje from "../dumb/DMensaje";
-import { Fragment } from "react";
 import { RespuestaServer, Usuario } from "../../auxiliar/type";
-import { motion } from "framer-motion";
-import { CambiarPantalla, Fade } from "../../auxiliar/animacion";
+import { AnimatePresence } from "framer-motion";
 import { PAGINA, useInformacionContext } from "../../context/Informacion";
+import SBotonMenu from "./SBotonMenu";
 
 function SJuego(props: { memotest: Memotest }): JSX.Element {
   const { usuario, cambiarPagina, actualizarUsuario } = useInformacionContext();
@@ -81,60 +79,56 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
     cambiarPagina(PAGINA.MENU);
   };
 
+  const opcionesFinal = [
+    { nombre: "Volver al menu", activadorOpcion: volverAlMenu },
+  ];
+
+  const opcionesDerrota = [
+    { nombre: "Volver al menu", activadorOpcion: volverAlMenu },
+    { nombre: "Volver a jugar", activadorOpcion: volverAJugar },
+  ];
+
+  const opcionesVictoria = [
+    {
+      nombre: "Siguiente nivel",
+      activadorOpcion: metodosMemotest.siguienteNivel,
+    },
+  ];
   return (
-    <motion.section key={pantalla} className="cargando" {...CambiarPantalla}>
-      {pantalla === PANTALLA_CARGA.MENSAJE && (
-        <DMensajeTemporal mensaje="Actualizando datos..." />
-      )}
-      {pantalla === PANTALLA_CARGA.ERROR && (
-        <DMensaje
-          mensaje={enviador.data!.mensaje}
-          btnSiguiente={
-            <button
-              onClick={() => {
-                cambiarPagina(PAGINA.MENU);
-              }}
-            >
-              Volver al menu
-            </button>
+    <AnimatePresence>
+      <div key={pantalla} className="cont-juego">
+        <h1 className="cont-nivel">Nivel: {informacion.nivel}</h1>
+        <DJuego
+          informacion={informacion}
+          elegirCuadrado={metodosMemotest.elegirCuadrado}
+          usuario={usuario!}
+          tiempo={
+            <STiempo
+              informacion={informacion}
+              segNivel={informacion.segNivel}
+              segMemorizar={informacion.segMemorizar}
+              descontarTiempoMemorizar={
+                metodosMemotest.descontarTiempoMemorizar
+              }
+              descontarTiempoNivel={metodosMemotest.descontarTiempoNivel}
+              comenzarMemo={metodosMemotest.comenzarMemorizado}
+            />
           }
         />
-      )}
-      {pantalla === PANTALLA_CARGA.ACTUAL && (
-        <motion.section key={pantallaJuego} className="fade" {...Fade}>
-          {pantallaJuego === PANTALLA_JUEGO.JUEGO && (
-            <Fragment>
-              <h1 className="cont-nivel">Nivel: {informacion.nivel}</h1>
-              <DJuego
-                informacion={informacion}
-                elegirCuadrado={metodosMemotest.elegirCuadrado}
-                usuario={usuario!}
-                tiempo={
-                  <STiempo
-                    informacion={informacion}
-                    segNivel={informacion.segNivel}
-                    segMemorizar={informacion.segMemorizar}
-                    descontarTiempoMemorizar={
-                      metodosMemotest.descontarTiempoMemorizar
-                    }
-                    descontarTiempoNivel={metodosMemotest.descontarTiempoNivel}
-                    comenzarMemo={metodosMemotest.comenzarMemorizado}
-                  />
-                }
-              />
-            </Fragment>
+        <AnimatePresence key={pantalla}>
+          {pantalla === PANTALLA_CARGA.MENSAJE && (
+            <DMensajeTemporal mensaje="Actualizando datos..." />
           )}
-
+          {pantalla === PANTALLA_CARGA.ERROR && (
+            <DMensaje
+              mensaje={enviador.data!.mensaje}
+              btnSiguiente={<SBotonMenu />}
+            />
+          )}
           {pantallaJuego === PANTALLA_JUEGO.FINAL && (
             <DFinal
               puntajeTotal={informacion.puntajeTotal}
-              opciones={
-                <SOpciones
-                  opciones={[
-                    { nombre: "Volver al menu", activadorOpcion: volverAlMenu },
-                  ]}
-                />
-              }
+              opciones={<SOpciones opciones={opcionesFinal} />}
             />
           )}
 
@@ -142,34 +136,16 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
             <DVictoria
               puntajeNivel={informacion.puntajeNivel}
               puntajeTotal={informacion.puntajeTotal}
-              opciones={
-                <SOpciones
-                  opciones={[
-                    {
-                      nombre: "Siguiente nivel",
-                      activadorOpcion: metodosMemotest.siguienteNivel,
-                    },
-                  ]}
-                />
-              }
+              opciones={<SOpciones opciones={opcionesVictoria} />}
             />
           )}
 
           {pantallaJuego === PANTALLA_JUEGO.DERROTA && (
-            <DDerrota
-              opciones={
-                <SOpciones
-                  opciones={[
-                    { nombre: "Volver al menu", activadorOpcion: volverAlMenu },
-                    { nombre: "Volver a jugar", activadorOpcion: volverAJugar },
-                  ]}
-                />
-              }
-            />
+            <DDerrota opciones={<SOpciones opciones={opcionesDerrota} />} />
           )}
-        </motion.section>
-      )}
-    </motion.section>
+        </AnimatePresence>
+      </div>
+    </AnimatePresence>
   );
 }
 

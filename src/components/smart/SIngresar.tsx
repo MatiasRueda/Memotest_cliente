@@ -5,9 +5,9 @@ import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
 import DMensaje from "../dumb/DMensaje";
 import { RespuestaServer, Usuario } from "../../auxiliar/type";
-import { AnimatePresence, motion } from "framer-motion";
-import { CambiarPantalla } from "../../auxiliar/animacion";
 import { PAGINA, useInformacionContext } from "../../context/Informacion";
+import { Fragment } from "react";
+import SBotonMenu from "./SBotonMenu";
 
 function SIngresar(): JSX.Element {
   const enviador = useEnviarSolicitud<Usuario, RespuestaServer<Usuario>>(
@@ -17,14 +17,6 @@ function SIngresar(): JSX.Element {
   const { cambiarPagina, actualizarUsuario } = useInformacionContext();
   const { pantalla, cambiarPantalla, mantenerPantalla } = usePantallaCarga();
 
-  const menu: JSX.Element = (
-    <button
-      children={"Ir al menu"}
-      onClick={() => {
-        cambiarPagina(PAGINA.MENU);
-      }}
-    />
-  );
   const ingresar: JSX.Element = (
     <button
       children={"Volver a ingresar"}
@@ -48,30 +40,31 @@ function SIngresar(): JSX.Element {
   };
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.section key={pantalla} className="cargando" {...CambiarPantalla}>
-        <h2>Ingresar</h2>
-        <SFormularioIngresar
-          enviarInformacion={enviarInformacion}
-          cancelar={() => {
-            cambiarPagina(PAGINA.MENU);
-          }}
+    <Fragment>
+      <h2>Ingresar</h2>
+      <SFormularioIngresar
+        enviarInformacion={enviarInformacion}
+        cancelar={() => {
+          cambiarPagina(PAGINA.MENU);
+        }}
+      />
+      {pantalla === PANTALLA_CARGA.MENSAJE && (
+        <DMensaje
+          mensaje={enviador.data!.mensaje}
+          btnSiguiente={<SBotonMenu />}
         />
-        {pantalla === PANTALLA_CARGA.MENSAJE && (
-          <DMensaje mensaje={enviador.data!.mensaje} btnSiguiente={menu} />
-        )}
-        {pantalla === PANTALLA_CARGA.ERROR && (
-          <DMensaje
-            mensaje={enviador.data!.mensaje}
-            btnSiguiente={menu}
-            btnVolver={ingresar}
-          />
-        )}
-        {pantalla === PANTALLA_CARGA.CARGANDO && (
-          <DMensajeTemporal mensaje="Cargando..." />
-        )}
-      </motion.section>
-    </AnimatePresence>
+      )}
+      {pantalla === PANTALLA_CARGA.ERROR && (
+        <DMensaje
+          mensaje={enviador.data!.mensaje}
+          btnSiguiente={<SBotonMenu />}
+          btnVolver={ingresar}
+        />
+      )}
+      {pantalla === PANTALLA_CARGA.CARGANDO && (
+        <DMensajeTemporal mensaje="Cargando..." />
+      )}
+    </Fragment>
   );
 }
 

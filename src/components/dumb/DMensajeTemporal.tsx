@@ -1,8 +1,11 @@
+import { motion } from "framer-motion";
+import { Fade } from "../../auxiliar/animacion";
+
 function DMensajeTemporal(props: { mensaje: string }): JSX.Element {
   return (
-    <section className="pantalla">
+    <motion.section className="pantalla" {...Fade}>
       <h1>{props.mensaje}</h1>
-    </section>
+    </motion.section>
   );
 }
 
