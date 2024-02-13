@@ -3,7 +3,7 @@ import { Fade } from "../../auxiliar/animacion";
 
 function DMensajeTemporal(props: {
   mensaje: string;
-  mensajes?: JSX.Element;
+  mensajes?: JSX.Element | false;
 }): JSX.Element {
   return (
     <motion.section className="pantalla mensaje-temporal" {...Fade}>

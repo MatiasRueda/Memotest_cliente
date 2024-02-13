@@ -15,7 +15,8 @@ function SIngresar(): JSX.Element {
     SERVER_PATH_INGRESAR,
     METODO.POST
   );
-  const { cambiarPagina, actualizarUsuario } = useInformacionContext();
+  const { cambiarPagina, actualizarUsuario, primeraVez, sacarPrimeraVez } =
+    useInformacionContext();
   const { pantalla, cambiarPantalla, mantenerPantalla } = usePantallaCarga();
 
   const ingresar: JSX.Element = (
@@ -32,22 +33,28 @@ function SIngresar(): JSX.Element {
     await enviador.trigger(data);
     await mantenerPantalla();
     if (!enviador.data!.exito) {
+      sacarPrimeraVez();
       cambiarPantalla(PANTALLA_CARGA.ERROR);
       return;
     }
     cambiarPantalla(PANTALLA_CARGA.MENSAJE);
     actualizarUsuario(enviador.data!.dato!);
+    sacarPrimeraVez();
   };
 
   return (
     <Fragment>
-      <h2>Ingresar</h2>
-      <SFormularioIngresar
-        enviarInformacion={enviarInformacion}
-        cancelar={() => {
-          cambiarPagina(PAGINA.MENU);
-        }}
-      />
+      {pantalla === PANTALLA_CARGA.ACTUAL && (
+        <Fragment>
+          <h2>Ingresar</h2>
+          <SFormularioIngresar
+            enviarInformacion={enviarInformacion}
+            cancelar={() => {
+              cambiarPagina(PAGINA.MENU);
+            }}
+          />
+        </Fragment>
+      )}
       {pantalla === PANTALLA_CARGA.MENSAJE && (
         <DMensaje
           mensaje={enviador.data!.mensaje}
@@ -62,7 +69,10 @@ function SIngresar(): JSX.Element {
         />
       )}
       {pantalla === PANTALLA_CARGA.CARGANDO && (
-        <DMensajeTemporal mensaje="Cargando..." mensajes={<AMensajes />} />
+        <DMensajeTemporal
+          mensaje="Cargando..."
+          mensajes={primeraVez && <AMensajes />}
+        />
       )}
     </Fragment>
   );

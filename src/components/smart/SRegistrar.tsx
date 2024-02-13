@@ -21,7 +21,8 @@ function SRegistrar(): JSX.Element {
     SERVER_PATH_REGISTRAR,
     METODO.POST
   );
-  const { cambiarPagina } = useInformacionContext();
+  const { cambiarPagina, primeraVez, sacarPrimeraVez } =
+    useInformacionContext();
   const { pantalla, cambiarPantalla, mantenerPantalla } = usePantallaCarga();
 
   const registrarse: JSX.Element = (
@@ -38,23 +39,32 @@ function SRegistrar(): JSX.Element {
     await enviador.trigger(data);
     await mantenerPantalla();
     if (!enviador.data!.exito) {
+      sacarPrimeraVez();
       cambiarPantalla(PANTALLA_CARGA.ERROR);
       return;
     }
     cambiarPantalla(PANTALLA_CARGA.MENSAJE);
+    sacarPrimeraVez();
   };
 
   return (
     <Fragment>
-      <h2>Registrarse</h2>
-      <SFormularioRegister
-        enviarInformacion={enviarInformacion}
-        cancelar={() => {
-          cambiarPagina(PAGINA.MENU);
-        }}
-      />
+      {pantalla === PANTALLA_CARGA.ACTUAL && (
+        <Fragment>
+          <h2>Registrarse</h2>
+          <SFormularioRegister
+            enviarInformacion={enviarInformacion}
+            cancelar={() => {
+              cambiarPagina(PAGINA.MENU);
+            }}
+          />
+        </Fragment>
+      )}
       {pantalla === PANTALLA_CARGA.CARGANDO && (
-        <DMensajeTemporal mensaje="Cargando..." mensajes={<AMensajes />} />
+        <DMensajeTemporal
+          mensaje="Cargando..."
+          mensajes={primeraVez && <AMensajes />}
+        />
       )}
       {pantalla === PANTALLA_CARGA.MENSAJE && (
         <DMensaje

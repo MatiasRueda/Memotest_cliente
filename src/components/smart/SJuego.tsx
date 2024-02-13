@@ -64,13 +64,15 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
       maxPuntaje: informacion.puntajeTotal,
     };
     if (usuarioActualizado.invitado) {
+      metodosMemotest.reiniciar();
       actualizarUsuario(usuarioActualizado);
       cambiarPagina(PAGINA.MENU);
       return;
     }
+
+    metodosMemotest.reiniciar();
     cambiarPantalla(PANTALLA_CARGA.MENSAJE);
     await enviador.trigger(usuarioActualizado);
-    await mantenerPantalla();
     if (!enviador.data!.exito) {
       cambiarPantalla(PANTALLA_CARGA.ERROR);
       return;
@@ -115,7 +117,7 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
             />
           }
         />
-        <AnimatePresence key={pantalla}>
+        <AnimatePresence mode="wait" key={pantalla}>
           {pantalla === PANTALLA_CARGA.MENSAJE && (
             <DMensajeTemporal mensaje="Actualizando datos..." />
           )}
@@ -125,6 +127,8 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
               btnSiguiente={<SBotonMenu />}
             />
           )}
+        </AnimatePresence>
+        <AnimatePresence mode="wait" key={pantallaJuego}>
           {pantallaJuego === PANTALLA_JUEGO.FINAL && (
             <DFinal
               puntajeTotal={informacion.puntajeTotal}

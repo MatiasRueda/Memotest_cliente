@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { SERVER_PATH_USUARIOS } from "../../auxiliar/path";
 import useObtenerInfo from "../../hook/useObtenerInfo";
 import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
@@ -18,7 +18,12 @@ type UsuarioTabla = {
 };
 
 function STabla(): JSX.Element {
-  const { usuario: usuarioActual, cambiarPagina } = useInformacionContext();
+  const {
+    usuario: usuarioActual,
+    cambiarPagina,
+    primeraVez,
+    sacarPrimeraVez,
+  } = useInformacionContext();
   const { pantalla, cambiarPantalla, mantenerPantalla } = usePantallaCarga(
     PANTALLA_CARGA.CARGANDO
   );
@@ -26,7 +31,10 @@ function STabla(): JSX.Element {
     RespuestaServer<UsuarioTabla[]>
   >(SERVER_PATH_USUARIOS, false);
 
-  const usuariosTabla = (usuarios: UsuarioTabla[]): JSX.Element[] => {
+  const usuariosTabla = (
+    usuarios: UsuarioTabla[] | undefined
+  ): JSX.Element[] => {
+    if (!usuarios) return [];
     return usuarios.map((usuario) => (
       <DUsuarioTabla
         key={usuario.nombre}
@@ -47,9 +55,11 @@ function STabla(): JSX.Element {
       if (isLoading || isValidating) return;
       await mantenerPantalla();
       if (!data!.exito) {
+        sacarPrimeraVez();
         cambiarPantalla(PANTALLA_CARGA.ERROR);
         return;
       }
+      sacarPrimeraVez();
       cambiarPantalla(PANTALLA_CARGA.ACTUAL);
     };
 
@@ -58,15 +68,22 @@ function STabla(): JSX.Element {
 
   return (
     <AnimatePresence>
-      <DTabla
-        usuarios={usuariosTabla(data!.dato!)}
-        volver={() => {
-          cambiarPagina(PAGINA.MENU);
-        }}
-      />
+      {pantalla === PANTALLA_CARGA.ACTUAL && (
+        <Fragment>
+          <DTabla
+            usuarios={usuariosTabla(data?.dato!)}
+            volver={() => {
+              cambiarPagina(PAGINA.MENU);
+            }}
+          />
+        </Fragment>
+      )}
       <AnimatePresence mode="wait" key={pantalla}>
         {pantalla === PANTALLA_CARGA.CARGANDO && (
-          <DMensajeTemporal mensaje="Cargando..." mensajes={<AMensajes />} />
+          <DMensajeTemporal
+            mensaje="Cargando..."
+            mensajes={primeraVez && <AMensajes />}
+          />
         )}
         {pantalla === PANTALLA_CARGA.ERROR && (
           <DMensaje mensaje={data!.mensaje} btnSiguiente={<SBotonMenu />} />

@@ -4,6 +4,7 @@ import useEnviarSolicitud, { METODO } from "../../hook/useEnviarSolicitud";
 import { RespuestaServer, Usuario } from "../../auxiliar/type";
 import { invitado } from "../../auxiliar/invitado";
 import { PAGINA, useInformacionContext } from "../../context/Informacion";
+import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
 
 type Opcion = {
   nombre: string;
@@ -12,6 +13,7 @@ type Opcion = {
 
 function SOpcionesMenu(): JSX.Element {
   const info = useInformacionContext();
+  const { cambiarPantalla } = usePantallaCarga();
   const { trigger } = useEnviarSolicitud<Usuario, RespuestaServer<undefined>>(
     SERVER_PATH_ACTUALIZAR,
     METODO.PUT
@@ -22,6 +24,7 @@ function SOpcionesMenu(): JSX.Element {
       info.sacarUsuario();
       return;
     }
+    cambiarPantalla(PANTALLA_CARGA.MENSAJE);
     await trigger(info.usuario!);
     info.sacarUsuario();
   };
