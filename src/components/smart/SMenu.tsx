@@ -4,6 +4,7 @@ import usePantallaCarga, { PANTALLA_CARGA } from "../../hook/usePantallaCarga";
 import { Fragment, useEffect } from "react";
 import DMensajeTemporal from "../dumb/DMensajeTemporal";
 import { useInformacionContext } from "./SInformacion";
+import ATitulo from "../animation/ATitulo";
 
 function SMenu(): JSX.Element {
     const { pantalla , cambiarPantalla , mantenerPantalla } = usePantallaCarga();
@@ -28,7 +29,7 @@ function SMenu(): JSX.Element {
         <Fragment >
             {pantalla === PANTALLA_CARGA.ACTUAL &&  
                 <Fragment>
-                    <h1>Memotest</h1>
+                    <ATitulo texto="Memotest"/>
                     <SSaludo/>
                     <SOpcionesMenu/>
                 </Fragment>}

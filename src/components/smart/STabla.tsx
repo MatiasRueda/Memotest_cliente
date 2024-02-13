@@ -21,10 +21,11 @@ function STabla(): JSX.Element {
     const { pantalla , cambiarPantalla , mantenerPantalla } = usePantallaCarga(PANTALLA_CARGA.CARGANDO);
     const { data , isLoading , isValidating } = useObtenerInfo<RespuestaServer<UsuarioTabla[]>>(SERVER_PATH_USUARIOS, false);
     const usuariosTabla = (usuarios: UsuarioTabla[]): JSX.Element[] => {
-        return usuarios.map((usuario) => <DUsuarioTabla key={usuario.nombre}
+        return usuarios.map((usuario) => <DUsuarioTabla 
+                                            key={usuario.nombre}
                                             nombre={usuario.nombre}
                                             maxPuntaje={usuario.maxPuntaje}
-                                            estilo={{color: usuario.nombre === usuarioActual!.nombre? 
+                                            estilo={{color: (!usuarioActual?.invitado && usuario.nombre === usuarioActual!.nombre)? 
                                                 "red" : "white"}} />);
     }
 

@@ -7,10 +7,8 @@
     justify-content: center;
 }
 
-.pagina-menu h1 {
-    width: 100%;
-    font-size: 5em;
-    text-align: center;
+.cont-titulo {
+    font-size: 3em;
 }
 
 .pagina-menu .cont-saludo {

@@ -31,6 +31,12 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
             return;
         }
         const usuarioActualizado: Usuario = {...usuario!, maxPuntaje: informacion.puntajeTotal }
+        if (usuarioActualizado.invitado) {
+            actualizarUsuario(usuarioActualizado);
+            metodosMemotest.reiniciar();
+            cambiarPantalla(PANTALLA_CARGA.ACTUAL);
+            return;
+        }
         cambiarPantalla(PANTALLA_CARGA.MENSAJE);
         await enviador.trigger(usuarioActualizado);
         await mantenerPantalla();
@@ -48,8 +54,13 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
             cambiarPagina(PAGINA.MENU); 
             return;
         }
-        cambiarPantalla(PANTALLA_CARGA.MENSAJE);
         const usuarioActualizado: Usuario = {...usuario!, maxPuntaje: informacion.puntajeTotal };
+        if (usuarioActualizado.invitado) {
+            actualizarUsuario(usuarioActualizado);
+            cambiarPagina(PAGINA.MENU); 
+            return;
+        }
+        cambiarPantalla(PANTALLA_CARGA.MENSAJE);
         await enviador.trigger(usuarioActualizado);
         await mantenerPantalla();
         if (!enviador.data!.exito) {

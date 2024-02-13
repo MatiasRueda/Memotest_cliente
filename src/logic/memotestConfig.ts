@@ -13,11 +13,9 @@ const config = {
     masSegParaNivel: 3,
     masSegParaMemorizar: 2,
     masIntentos: 1,
-    colores:["red", "blue", "green" , "yellow" , "orange" , "pink", "grey", "brown",
-            "purple", "teal" , "olive" , "mediumpurple" , "yellowgreen",
-            "whitesmoke","springgreen" ,
-            "mediumvioletred", "magenta" , "rosybrown",
-            "royalblue", "aqua" , "burlywood"],
+    colores:["#ff0000", "#0000ff", "#008000" , "#ffff00" , "#ffa500" , "#ffc0cb", "#808080", "#a52a2a",
+             "#800080", "#008080" , "#808000" , "#9370db" , "#9acd32", "#f5f5f5","#00ff7f" , "#c71585", 
+             "#ff00ff" , "#bc8f8f", "#4169e1", "#00ffff" , "#deb887"],
 }
 
 export default config;

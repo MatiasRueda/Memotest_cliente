@@ -3,6 +3,7 @@ import DOpciones from "../dumb/DOpciones";
 import { SERVER_PATH_ACTUALIZAR } from "../../auxiliar/path";
 import useEnviarSolicitud, { METODO } from "../../hook/useEnviarSolicitud";
 import { RespuestaServer, Usuario } from "../../auxiliar/type";
+import { invitado } from "../../auxiliar/invitado";
 
 type Opcion = {
     nombre: string,
@@ -14,6 +15,10 @@ function SOpcionesMenu(): JSX.Element {
     const { trigger } = useEnviarSolicitud<Usuario, RespuestaServer<undefined>>(SERVER_PATH_ACTUALIZAR, METODO.PUT);
 
     const salir = async (): Promise<void> => {
+        if (info.usuario?.invitado) {
+            info.sacarUsuario();
+            return;
+        }
         await trigger(info.usuario!);
         info.sacarUsuario();
     }
@@ -21,6 +26,7 @@ function SOpcionesMenu(): JSX.Element {
     const opcionesSinUsuario: Opcion[] = [
         {nombre: "Ingresar", activadorOpcion: () => { info.cambiarPagina(PAGINA.INGRESAR) }},
         {nombre: "Registrar", activadorOpcion: () => { info.cambiarPagina(PAGINA.REGISTRAR) }},
+        {nombre: "Invitado", activadorOpcion: () => { info.actualizarUsuario(invitado) }},
         {nombre: "Configuracion", activadorOpcion: () => { info.cambiarPagina(PAGINA.CONFIGURAR) }}]
     
     const opcionesConUsuario: Opcion[] = [

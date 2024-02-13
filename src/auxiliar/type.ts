@@ -4,6 +4,7 @@ export type Usuario = {
     contrasenia?: string;
     maxPuntaje: number;
     reglas: number;
+    invitado?: boolean;
 }
 
 export type RespuestaServer<T> = {
