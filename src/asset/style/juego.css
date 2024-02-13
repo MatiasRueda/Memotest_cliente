@@ -1,237 +1,235 @@
 .pagina-juego {
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagina-juego .cont-nivel {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .juego {
-    height: 90%;
-    width: 100%;
-    display: flex;
-    background-color: skyblue;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  background-color: skyblue;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .juego .tablero {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    width: 40%;
-    border: 0.15rem solid black;
-    background-color: rgb(164, 164, 253);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 40%;
+  border: 0.15rem solid black;
+  background-color: rgb(164, 164, 253);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .juego .tablero button {
-    margin: 0.2rem;
-    border: 0.1rem solid black;
+  margin: 0.2rem;
+  border: 0.1rem solid black;
 }
 
 .juego .info {
-    margin: 0 auto;
-    margin-top: 1rem;
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .juego .info-puntaje {
-    margin: 0 auto;
-    margin-top: 1rem;
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .juego .info-puntaje h2 {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 
 .juego .cont-tiempo {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .juego .cont-cronometro {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .juego .cont-tiempo button {
-    height: 3rem;
-    width: 6rem;
-    cursor: pointer;
-    color: black;
-    background-color: white;
+  height: 3rem;
+  width: 6rem;
+  cursor: pointer;
+  color: black;
+  background-color: white;
 }
 
 .juego .cont-tiempo button:hover {
-    color: white;
-    background-color: rgb(117, 117, 223);
+  color: white;
+  background-color: rgb(117, 117, 223);
 }
 
 .post-juego {
-    height: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .post-juego h2 {
-    width: 100%;
-    font-size: 4em;
-    text-align: center;
+  width: 100%;
+  font-size: 4em;
+  text-align: center;
 }
 
 .post-juego h3 {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
-
 .post-juego .cont-opciones {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .post-juego .cont-opciones button {
-    height: 4rem;
-    width: 10rem;
-    cursor: pointer;
-    border: 0.3rem solid white;
-    color: white;
-    background-color: black;
+  height: 4rem;
+  width: 10rem;
+  cursor: pointer;
+  border: 0.3rem solid white;
+  color: white;
+  background-color: black;
 }
 
 .post-juego .cont-opciones button:hover {
-    color: black;
-    background-color: white;
+  color: black;
+  background-color: white;
 }
 
 @media (max-width: 1280px) and (min-width: 415px) {
-    .juego .tablero {
-        width: 79%;
-        margin-bottom: 3rem;
-    }
+  .juego .tablero {
+    width: 79%;
+    margin-bottom: 3rem;
+  }
 
-    .juego .info , .juego .info-puntaje{
-        width: 100%;
-    }
+  .juego .info,
+  .juego .info-puntaje {
+    width: 100%;
+  }
 
-    .juego .tablero button {
-        height: 4.2rem !important;
-        width: 4.2rem !important;
-    }
+  .juego .tablero button {
+    height: 4.2rem !important;
+    width: 4.2rem !important;
+  }
 }
 
 @media (width: 1024px) {
-    .juego .tablero {
-        margin-bottom: 1rem;
-    }
-
+  .juego .tablero {
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 415px) and (min-width: 411px) {
-    .juego .tablero {
-        width: 98%;
-    }
+  .juego .tablero {
+    width: 98%;
+  }
 
-    .juego .info {
-        width: 100%;
-    }
+  .juego .info {
+    width: 100%;
+  }
 
-    .juego .info-puntaje{
-        width: 100%; 
-    }
+  .juego .info-puntaje {
+    width: 100%;
+  }
 
-    .juego .info-puntaje h2{
-        width: 100%; 
-    }
+  .juego .info-puntaje h2 {
+    width: 100%;
+  }
 
-    .juego .tablero button {
-        height: 3.5rem !important;
-        width: 3.5rem !important;
-    }
+  .juego .tablero button {
+    height: 3.5rem !important;
+    width: 3.5rem !important;
+  }
 }
 
 @media (max-width: 410px) and (min-width: 301px) {
-    .juego .tablero {
-        width: 98%;
-    }
+  .juego .tablero {
+    width: 98%;
+  }
 
-    .juego .info {
-        width: 100%;
-    }
+  .juego .info {
+    width: 100%;
+  }
 
-    .juego .info-puntaje{
-        width: 100%; 
-    }
+  .juego .info-puntaje {
+    width: 100%;
+  }
 
-    .juego .info-puntaje h2{
-        width: 100%; 
-    }
+  .juego .info-puntaje h2 {
+    width: 100%;
+  }
 
-    .juego .tablero button {
-        height: 3.2rem !important;
-        width: 3.2rem !important;
-    }
+  .juego .tablero button {
+    height: 3.2rem !important;
+    width: 3.2rem !important;
+  }
 }
 
-@media (max-width: 300px){
-    .juego .tablero {
-        width: 97.4%;
-    }
+@media (max-width: 300px) {
+  .juego .tablero {
+    width: 97.4%;
+  }
 
-    .juego .info {
-        margin: 0 auto;
-        height: 100%;
-        width: 100%;
-    }
-    .juego .info-puntaje{
-        width: 100%; 
-    }
+  .juego .info {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+  }
+  .juego .info-puntaje {
+    width: 100%;
+  }
 
-    .juego .info-puntaje h2{
-        width: 100%; 
-    }
+  .juego .info-puntaje h2 {
+    width: 100%;
+  }
 
-    .juego .tablero button {
-        height: 2.3rem !important;
-        width: 2.3rem !important;
-    }
+  .juego .tablero button {
+    height: 2.3rem !important;
+    width: 2.3rem !important;
+  }
 }
 
-
-@media (width: 430px){
-    .juego {
-        height: 110%;    
-    }
+@media (width: 430px) {
+  .juego {
+    height: 110%;
+  }
 }
 
 @media (width: 540px) {
-    .juego {
-        height: 110%;    
-    }
+  .juego {
+    height: 110%;
+  }
 }

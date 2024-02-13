@@ -1,122 +1,122 @@
 .pagina-registrarse {
-    height: 80%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagina-registrarse h2 {
-    width: 100%;
-    font-size: 3em;
-    text-align: center;
+  width: 100%;
+  font-size: 3em;
+  text-align: center;
 }
 
 #form-registrarse {
-    height: 70%;
-    width: 25rem;
-    background-color: rgb(117, 117, 223);
-    border: 0.3rem solid white;
-    border-radius: 1rem;
-
+  height: 70%;
+  width: 25rem;
+  background-color: rgb(117, 117, 223);
+  border: 0.3rem solid white;
+  border-radius: 1rem;
 }
 
 .cont-form-registrarse {
-    height: 75%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 #form-registrarse .cont-form-botones {
-    margin: 0 auto;
-    height: 25%;
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  margin: 0 auto;
+  height: 25%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #form-registrarse .cont-label {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
-#form-registrarse .cont-label , #form-registrarse .cont-input {
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-    height: 3rem;
+#form-registrarse .cont-label,
+#form-registrarse .cont-input {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  height: 3rem;
 }
 
 #form-registrarse .cont-label {
-    width: 50%;
+  width: 50%;
 }
 
 #form-registrarse .cont-label label {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 #form-registrarse .cont-input .cont-error {
-    height: 1rem;
-    text-align: center;
+  height: 1rem;
+  text-align: center;
 }
 
 #form-registrarse .cont-input {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-#form-registrarse .cont-input input{
-    padding-left: 0.3rem;
-    height: 1.5rem;
+#form-registrarse .cont-input input {
+  padding-left: 0.3rem;
+  height: 1.5rem;
 }
 
 #form-registrarse button {
-    height: 3rem;
-    width: 6rem;
-    cursor: pointer;
-    color: white;
-    border: 0.2rem solid white;
-    background-color: black;
+  height: 3rem;
+  width: 6rem;
+  cursor: pointer;
+  color: white;
+  border: 0.2rem solid white;
+  background-color: black;
 }
 
 #form-registrarse button:hover {
-    color: black;
-    background-color: white;
+  color: black;
+  background-color: white;
 }
 
 @media (max-width: 1280px) and (min-width: 301px) {
-    #form-registrarse {
-        height: 70%;
-    }
+  #form-registrarse {
+    height: 70%;
+  }
 
-    #form-registrarse .cont-label {
-        width: 40%;
-    }
-    #form-registrarse .cont-input {
-        width: 60%;
-    }
-    #form-registrarse .cont-form-botones {
-        width: 80%;
-    }
+  #form-registrarse .cont-label {
+    width: 40%;
+  }
+  #form-registrarse .cont-input {
+    width: 60%;
+  }
+  #form-registrarse .cont-form-botones {
+    width: 80%;
+  }
 }
 
 @media (max-width: 300px) {
-    #form-registrarse {
-        height: 80%;
-        width: 90%;
-    }
+  #form-registrarse {
+    height: 80%;
+    width: 90%;
+  }
 
-    #form-registrarse .cont-input input{
-        width: 60%;
-    }
+  #form-registrarse .cont-input input {
+    width: 60%;
+  }
 
-    #form-registrarse .cont-form-botones {
-        width: 80%;
-    }  
+  #form-registrarse .cont-form-botones {
+    width: 80%;
+  }
 }

@@ -14,7 +14,7 @@ function SManejoPantallas(): JSX.Element {
   const { pagina } = useInformacionContext();
   return (
     <AnimatePresence mode="wait">
-      <motion.main key={pagina} className="fade" {...Fade}>
+      <motion.main key={pagina} {...Fade}>
         {pagina === PAGINA.MENU && <Menu />}
         {pagina === PAGINA.INGRESAR && <Ingresar />}
         {pagina === PAGINA.REGISTRAR && <Registrar />}
