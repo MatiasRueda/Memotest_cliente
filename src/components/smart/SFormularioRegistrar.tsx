@@ -24,7 +24,7 @@ function SFormularioRegistrar(props: {
         type="text"
         reglas={{
           required: "Escriba su nombre porfavor",
-          maxLength: { value: 8, message: "Maximo 8 caracteres" },
+          maxLength: { value: 12, message: "Maximo 12 caracteres" },
         }}
         {...{ placeholder: "escriba su nombre" }}
       />
@@ -36,7 +36,6 @@ function SFormularioRegistrar(props: {
         reglas={{
           required: "Escriba su contrasenia porfavor",
           maxLength: { value: 10, message: "Maximo 10 caracteres" },
-          minLength: { value: 3, message: "Minimo 3 caracteres" },
         }}
         {...{ placeholder: "escriba su contrasenia" }}
       />

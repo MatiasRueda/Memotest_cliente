@@ -21,7 +21,10 @@ function SFormularioIngresar(props: {
       <SInput
         nombre="nombre"
         type="text"
-        reglas={{ required: "Escriba su nombre porfavor" }}
+        reglas={{
+          required: "Escriba su nombre porfavor",
+          maxLength: { value: 12, message: "Maximo 12 caracteres" },
+        }}
         {...{ placeholder: "escriba su nombre" }}
       />
       <DLabel htmlFor="contrasenia" texto="Contrasenia:" />
@@ -29,7 +32,10 @@ function SFormularioIngresar(props: {
         nombre="contrasenia"
         role="contrasenia"
         type="password"
-        reglas={{ required: "Escriba su contrasenia porfavor" }}
+        reglas={{
+          required: "Escriba su contrasenia porfavor",
+          maxLength: { value: 10, message: "Maximo 10 caracteres" },
+        }}
         {...{ placeholder: "escriba su contrasenia" }}
       />
     </SFormulario>
