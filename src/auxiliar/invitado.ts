@@ -5,5 +5,5 @@ export const invitado: Usuario = {
   nombre: "Invitado",
   maxPuntaje: 0,
   reglas: 1,
-  invitado: true
-}
+  invitado: true,
+};
