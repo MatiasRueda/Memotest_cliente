@@ -42,6 +42,7 @@ function SJuego(props: { memotest: Memotest }): JSX.Element {
       cambiarPantalla(PANTALLA_CARGA.ACTUAL);
       return;
     }
+    metodosMemotest.reiniciar();
     cambiarPantalla(PANTALLA_CARGA.MENSAJE);
     await enviador.trigger(usuarioActualizado);
     await mantenerPantalla();
